@@ -28,7 +28,9 @@ Python/Django, RubyOnRails, JavaScript Examples:
 https://www.youtube.com/watch?v=UBGzsb2UkeY
 
 1:23 python esp. django
+
 10:07 ruby esp. rails 
+
 14:30 node esp. express
 
 ## Other Recommended Videos
@@ -54,4 +56,5 @@ Please open an issue to comment on anything you see or learn here or just tell m
 Point me to resources that I can add to this page to make it more useful.
 You can even suggest a different topic
 
-[External Links] (https://github.com/Mozahler/GraphQLOverview/blob/master/PreparedLinksForGraphQL.pdf)
+# Other Resources:
+[Lots of Links] (https://github.com/Mozahler/GraphQLOverview/blob/master/PreparedLinksForGraphQL.pdf)
