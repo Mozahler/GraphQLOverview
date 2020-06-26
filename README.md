@@ -57,4 +57,4 @@ Point me to resources that I can add to this page to make it more useful.
 You can even suggest a different topic
 
 # Other Resources:
-[Lots of Links] (https://github.com/Mozahler/GraphQLOverview/blob/master/PreparedLinksForGraphQL.pdf)
+[Lots of Links] (https://github.com/Mozahler/GraphQLOverview/blob/master/GraphQL_External_Links.docx)
