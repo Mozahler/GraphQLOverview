@@ -1,23 +1,28 @@
-# GraphQL Explained
+# GraphQL Explained (a work in progress)
 
 ## GraphQL Enables Efficient and Flexible Client-Server Communication
- - GraphQL is an API technology designed to describe the complex, nested data dependencies of modern web applications. It is often considered as an alternative to SOAP or REST or to complement existing back end configurations
+ - GraphQL is an API technology designed to describe the complex, nested data dependencies of modern web applications. 
+ It is often considered as an alternative to SOAP or REST or to complement existing back end configurations
  - GraphQL works as a central data provider (aka. single endpoint for all data)
  - GraphQL is a query language that allows the client to describe the data it needs and its shape by providing a common interface for client and server. It has been designed with a flexible syntax that makes building client applications easier. This client/server interface also makes retrieving data and manipulations more efficient because it encourages using only the data needed, rather than retrieving a fixed set of data.
  - GraphQL is an alternative to REST endpoints for handling queries and database updates. It is a way to define a contract of what is provided by the server to a web application. GraphQL tries to improve how clients communicate with remote systems. It comes from a simple idea – instead of defining the structure of responses on the server, the client is given the flexibility to define what it wants in response to its queries.
  - With GraphQL, the UI gets the data it needs in a form that is useful for the UI. The core idea is that the code knows that the data that it needs are on the client, not the server. With GraphQL as an abstraction layer, we hide the complications of web services and let back-end developers create a menu of both available data structures and items available to retrieve (and how to retrieve them). Doing so allows the front-end application - and its developers - the ability to select from the items on the menu as they need. Because the server is handling all this, the front-end application doesn't need to worry about new items being added to the menu or where the data for that menu is coming from.
 
 Highlights from the Apollo Blog:
-https://www.apollographql.com/blog/graphql-explained-5844742f195e#.zdykxos6i
+
+[GraphQL Explained](https://www.apollographql.com/blog/graphql-explained-5844742f195e#.zdykxos6i)
+
 WRITTEN BY
 Jonas Helfer
 
-The QL in GraphQL stands for Query Language, and GraphQL’s query language is very easy to understand. 
 Using GraphQL’s type system you'll find its advantages over traditional RESTful APIs become obvious quite quickly.
 
 Summary Questions (You Should Know the Answers to these by the end of the Article)
+
 What is a resolver?
+
 What is a Schema?
+
 What is Relay?
 
 GraphQL Queries
@@ -47,7 +52,7 @@ Every GraphQL server has two core parts that determine how it works: a schema an
 The schema: The schema is a model of the data that can be fetched through the GraphQL server.
 It defines what queries clients are allowed to make, what types of data can be fetched from the server, and what the relationships between these types are.
 
-Query and Response
+**Query and Response**
 
 GraphQL servers are actually very easy to build, especially compared to a traditional RESTful API. All you need to do is define a schema — essentially a directory of the data types in your application — and resolve functions that tell the server where and how to fetch the data for each data type.
 
@@ -59,10 +64,10 @@ Having a strictly enforced schema ensures that documentation is always complete 
 
 The resolve functions are similar to the code you would write inside your REST endpoints, except that each of them has a clear responsibility for fetching items of just one type.
 
-GraphQL replaces REST “best practices” with a clear & simple structure
+GraphQL replaces REST “best practices” with a clear & simple structure.
 Because GraphQL gives you a logical structure in which to fit your code, building GraphQL servers is often much faster and easier than building a REST API.
 
-Can I use GraphQL with My Favorite Language/Product?
+**Can I use GraphQL with My Favorite Language/Product?**
 
 There are many open-source GraphQL clients available
 You can even use GraphQL without any client and send raw strings to the server, like you do for REST
@@ -78,7 +83,6 @@ If you’re looking for a simple tool that just helps you send GraphQL queries a
 
 
 ## How does a GraphQL server turn a query into a response?
-
 
 ## Server
 GraphQL hides the backend complexity from clients: no matter how many backends your app uses, all the client will see is a single GraphQL endpoint with a simple, self-documenting API for your application. This is accomplished using a schema and resolve functions.
@@ -112,34 +116,44 @@ Validation is performed automatically, can the named fields be retrieved, are th
 Queries implicitly support asynchronous requests - if a resolve function returns a promise, the executor will wait until that promise is resolved.
 Each GraphQL query has the shape of a tree. Execution begins at the root of the query. First, the executor calls the resolve function of the fields at the top level with the provided parameters. It waits until all these resolve functions have returned a value, and then proceeds in a cascading fashion down the tree. 
 
-See xxx for illustrations of this concept using a diagram/table/video
+These 3 Related Links illustrate this concept further.
+
+Guide:
+
+[blog](https://hasura.io/blog/gqless-fetch-your-graphql-data-automagically/)
+
+Video:
+
+[YouTube](https://youtu.be/wM5KDPG9Ugk)
+
+Github:
+
+[Demo Project on GitHub](https://github.com/hasura/gqless-movies-demo)
 
 ## Using GraphQL with MongoDB
 https://www.compose.com/articles/using-graphql-with-mongodb/
 
 
 ## Summary
- Using GraphQL is a powerful way for client applications to control what data they retrieve and how they manipulate it without requiring them to adapt to what data a server's API offers. 
+Control what data you retrieve and how to manipulate it using GraphQL
 
-Opinions
- Multiple requests on a RESTful-API for just one thing often indicates a lack in the API design, namely the needed resource was not available and therefore stuff needs to be gathered from different resources to compensate for this.
+Multiple requests on a RESTful-API for just one thing often indicates a lack in the API design, namely the needed resource was not available and therefore stuff needs to be gathered from different resources to compensate for this.
 
-A REST-API that could be easily replaced by GraphQL indicates, that the API was in fact a CRUD-HTTP-API, what is considered an Anti-Pattern among REST-Evangelists.
+A REST-API that could be easily replaced by GraphQL indicates that the API was in fact a CRUD-HTTP-API, what is considered an Anti-Pattern among REST-Evangelists.
 
 Also worth noting is, that GraphQL puts responsibilty on the client, because the backing API is reduced to be a datastore that just needs to be queried. REST on the other hand enforces the behaviour of the client and therefore reduces responsibility on it. The client gets reduced to be something similar to a browser.
 
 There are cases the one or the other approach would yield better results, but that greatly depends on your situation.
 
-one should consider the Pros after its implementation :
+Here are some Pros after its implementation :
 
-Very flexible to support new items and update existing behaviour.
+Easily supports new items and updates to existing behaviour
 Easy to add conditions using arguments and custom ordering once implemented
-Use a lot of custom filters and get rid of all the actions that needs to be created example a user can have id, name, etc as arguments and perform the filtering. Additionally the filters can be applied on the groups in the users as well.
-Ease of testing API by creating files containing all the GraphQL queries and mutations.
-Mutations are straightforward and easy to implement once understood the concept.
-Powerful way to fetch multiple depths of data.
-Support of Voyager and GraphiQL UI or Playground makes it easy to view and use.
-Ease of documentation while defining the schema with valid description methods.
+You can (judiciously) add custom filters which can be applied individualy or in groups
+Ease of testing API by creating files containing all the GraphQL queries and mutations
+Mutations are straightforward and easy to implement
+Powerful way to fetch multiple depths of data
+Good documentation is a by-product of defining the schema with properly considered description method names
 
 cases which can be counted as disadvantages:
 
