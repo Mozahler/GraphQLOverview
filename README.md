@@ -121,6 +121,8 @@ GitHub Projects
 
 [hasura/gqless-movies-demo: A movies app using Hasura and gqless](https://github.com/hasura/gqless-movies-demo)
 
+[Awesome GraphQL](https://github.com/chentsulin/awesome-graphql)
+
 Videos
 
 [ Exploring GraphQL - YouTube](https://www.youtube.com/watch?v=_9RgHXqH8J0)
